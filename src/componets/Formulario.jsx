@@ -44,7 +44,7 @@ function Formulario({ setAlert }) {
       msg: "Cuenta creada exitosamente!",
       color: "success",
     });
-    setName("nombre"); /* clear name */
+    setName("");
     setEmail("");
     setPassword("");
     setRePassword("");
