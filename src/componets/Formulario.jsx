@@ -1,24 +1,24 @@
-import { Button, Form } from "react-bootstrap"
-import { useState } from "react"
+import { Button, Form } from "react-bootstrap";
+import { useState } from "react";
 
 function Formulario({ setAlert }) {
-  const [name, setName] = useState("")
-  const [lastname, setLastName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [repassword, setRePassword] = useState("")
-  const VALIDATE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repassword, setRePassword] = useState("");
+  const VALIDATE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const validateForm = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!name || !email || !password || !repassword) {
       setAlert({
         error: true,
-        msg: "C",/* completa todo los campos */
+        msg: "Completa todos los campos",
         color: "danger",
-      })
-      return
+      });
+      return;
     }
 
     if (!VALIDATE_EMAIL.test(email)) {
@@ -26,8 +26,8 @@ function Formulario({ setAlert }) {
         error: true,
         msg: "El email debe tener un formato válido!",
         color: "danger",
-      })
-      return
+      });
+      return;
     }
 
     if (password !== repassword) {
@@ -35,20 +35,20 @@ function Formulario({ setAlert }) {
         error: true,
         msg: "Las contraseñas no coinciden!",
         color: "warning",
-      })
-      return
+      });
+      return;
     }
 
     setAlert({
       error: false,
       msg: "Cuenta creada exitosamente!",
-      color: "success"
-    })
-    setName('nombre')/* clear name */
-    setEmail('')
-    setPassword('')
-    setRePassword('')
-  }
+      color: "success",
+    });
+    setName("nombre"); /* clear name */
+    setEmail("");
+    setPassword("");
+    setRePassword("");
+  };
 
   return (
     <Form onSubmit={validateForm} noValidate>
@@ -80,9 +80,11 @@ function Formulario({ setAlert }) {
         value={repassword}
         placeholder="Confirma tu contraseña"
       />
-      <Button type="submit" variant="success">Registrarse</Button>
+      <Button type="submit" variant="success">
+        Registrarse
+      </Button>
     </Form>
-  )
+  );
 }
 
-export default Formulario
+export default Formulario;
